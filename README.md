@@ -7,17 +7,6 @@
 
 ---
 
-## Team Details
-
-| Role | Student Name | Register Number | GitHub Repository Link |
-| :--- | :--- | :--- | :--- |
-| **Student A** | `<Enter Student A Name>` | `<Enter Register No>` | `https://github.com/<username>/CSA09-<RegisterNumber>-Assignment3` |
-| **Student B** | `<Enter Student B Name>` | `<Enter Register No>` | `https://github.com/<username>/CSA09-<RegisterNumber>-Assignment3` |
-
-**Java Environment:** OpenJDK 17+ (`javac 17` / `java 17`)  
-**OS Tested:** Linux / Windows / macOS  
-
----
 
 ## Repository Structure
 
