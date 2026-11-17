@@ -1,0 +1,25 @@
+PS C:\Users\rr001\Downloads\CSA09-Assignment3\Q2> javac *.java
+PS C:\Users\rr001\Downloads\CSA09-Assignment3\Q2> java StorageDemo
+Saved answer01.pdf
+Error: Could not store answer02.pdf
+Cause: Disk quota exceeded
+
+PS C:\Users\rr001\Downloads\CSA09-Assignment3\Q2> java ExamPortalDemo
+
+--- Request: student=STU101, file=STU101_CSA09.pdf, size=240KB, windowOpen=true ---
+[Storage] Persisted STU101_CSA09.pdf (240 KB) for STU101
+[UI Response 200 OK] Answer script uploaded successfully!
+
+--- Request: student=STU102, file=STU102_CSA09.pdf, size=180KB, windowOpen=false ---
+[UI Response 403 DEADLINE_PASSED] Submission rejected: Exam window closed at 2026-11-17T20:03:14
+
+--- Request: student=STU999, file=STU999_CSA09.pdf, size=150KB, windowOpen=true ---
+[UI Response 401 UNAUTHORIZED] Access denied: Student STU999 is not enrolled in CSA09.
+
+--- Request: student=STU103, file=STU103_CSA09_HD.pdf, size=920KB, windowOpen=true ---
+[UI Response 500 UPLOAD_ERROR] Storage failed for file: STU103_CSA09_HD.pdf
+  [Root Cause Logged for Admin] java.io.IOException: Disk quota exceeded (920 KB > 500 KB limit)
+
+--- Chaining vs Non-Chaining Comparison ---
+Caught exception message : Storage failed for file: lost_cause.pdf
+getCause() result        : null (Original IOException stack trace and disk quota reason completely lost!)

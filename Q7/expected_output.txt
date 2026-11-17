@@ -1,0 +1,2 @@
+=== Stage 1: Hand-Checked 10-File Verification Set ===
+Sample Set (Expected: 8 Success, 1 Missing, 1 Corrupt) -> Actual: 8 Success, 1 Missing, 1 Corrupt

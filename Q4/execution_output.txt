@@ -1,0 +1,48 @@
+PS C:\Users\rr001\Downloads\CSA09-Assignment3\Q4> javac *.java
+PS C:\Users\rr001\Downloads\CSA09-Assignment3\Q4> java ScannerStationThreadDemo
+=== Part A: Calling run() Directly vs start() ===
+State before run(): NEW | isAlive=false
+[Direct-Call-Station] Completed scanning 2 scripts (Executing on thread: main)
+State after direct run(): NEW | isAlive=false
+
+=== Part B: Parallel Scanning with 4 ScannerStationThread Instances ===
+Station-1 before start() -> State: NEW, isAlive: false
+Station-2 before start() -> State: NEW, isAlive: false
+Station-3 before start() -> State: NEW, isAlive: false
+Station-4 before start() -> State: NEW, isAlive: false
+Station-1 mid-run        -> State: TIMED_WAITING, isAlive: true
+Station-2 mid-run        -> State: TIMED_WAITING, isAlive: true
+Station-3 mid-run        -> State: TIMED_WAITING, isAlive: true
+Station-4 mid-run        -> State: TIMED_WAITING, isAlive: true
+[Station-4] Completed scanning 5 scripts (Executing on thread: Station-4)
+[Station-3] Completed scanning 5 scripts (Executing on thread: Station-3)
+[Station-2] Completed scanning 5 scripts (Executing on thread: Station-2)
+[Station-1] Completed scanning 5 scripts (Executing on thread: Station-1)
+Station-1 after join()   -> State: TERMINATED, isAlive: false
+Station-2 after join()   -> State: TERMINATED, isAlive: false
+Station-3 after join()   -> State: TERMINATED, isAlive: false
+Station-4 after join()   -> State: TERMINATED, isAlive: false
+All stations finished. Total scripts scanned = 20
+
+PS C:\Users\rr001\Downloads\CSA09-Assignment3\Q4> java ScannerStationRunnableDemo
+=== Experiment 1: Finish Order Across 10 Runs (Runnable) ===
+Run 01 finish order: [S4, S3, S2, S1]
+Run 02 finish order: [S4, S2, S3, S1]
+Run 03 finish order: [S4, S2, S3, S1]
+Run 04 finish order: [S2, S3, S4, S1]
+Run 05 finish order: [S4, S3, S2, S1]
+Run 06 finish order: [S3, S2, S4, S1]
+Run 07 finish order: [S4, S2, S3, S1]
+Run 08 finish order: [S4, S2, S3, S1]
+Run 09 finish order: [S1, S4, S3, S2]
+Run 10 finish order: [S2, S4, S3, S1]
+
+=== Experiment 2: Thread Priorities (MIN=1 vs MAX=10) ===
+Priority test finish order: [HighPrio-S2, LowPrio-S1]
+
+=== Experiment 3: Daemon Thread Behaviour ===
+[Daemon-Station] Started background audit scan...
+[Main] Exiting now while daemon is still sleeping -> JVM terminates daemon immediately!
+
+PS C:\Users\rr001\Downloads\CSA09-Assignment3\Q4> java ScannerExecutorAlternative
+ExecutorService (p=4 threads) scanned 400 scripts across 16 batches in 132 ms

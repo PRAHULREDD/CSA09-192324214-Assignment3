@@ -1,0 +1,9 @@
+=== Part A: Calling run() Directly vs start() ===
+State before run(): NEW | isAlive=false
+[Direct-Call-Station] Completed scanning 2 scripts (Executing on thread: main)
+State after direct run(): NEW | isAlive=false
+
+=== Part B: Parallel Scanning with 4 ScannerStationThread Instances ===
+Station-1 before start() -> State: NEW, isAlive: false
+...
+All stations finished. Total scripts scanned = 20

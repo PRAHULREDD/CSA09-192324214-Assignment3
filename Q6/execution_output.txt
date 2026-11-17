@@ -1,0 +1,42 @@
+PS C:\Users\rr001\Downloads\CSA09-Assignment3\Q6> javac *.java
+PS C:\Users\rr001\Downloads\CSA09-Assignment3\Q6> java TokenCounter
+Sum of tokens collected: 210 (expected 210)
+
+PS C:\Users\rr001\Downloads\CSA09-Assignment3\Q6> java HostelWalletTransferDemo
+=== Part 1: Reproducing Deadlock with Opposite Lock Order ===
+Deadlock detected by JVM ThreadMXBean: 2 threads deadlocked!
+
+=== Part 2: Preventing Deadlock via Consistent Lock Ordering ===
+Completed 1,000 concurrent bidirectional transfers with ZERO deadlocks!
+Final Balances -> A: Rs. 5000.00, B: Rs. 5000.00, Combined Total: Rs. 10000.00 (Expected: 10000.00)
+
+PS C:\Users\rr001\Downloads\CSA09-Assignment3\Q6> java TokenCounterMonitoredDemo
+[PUT  token=01] counter size = 1
+[TAKE token=01 by Student-1] counter size = 0
+[PUT  token=02] counter size = 1
+[PUT  token=03] counter size = 2
+[PUT  token=04] counter size = 3
+[PUT  token=05] counter size = 4
+[PUT  token=06] counter size = 5
+[TAKE token=02 by Student-1] counter size = 4
+[TAKE token=03 by Student-1] counter size = 3
+[TAKE token=04 by Student-1] counter size = 2
+[TAKE token=05 by Student-1] counter size = 1
+[TAKE token=06 by Student-1] counter size = 0
+[PUT  token=07] counter size = 1
+[PUT  token=08] counter size = 2
+[PUT  token=09] counter size = 3
+[PUT  token=10] counter size = 4
+[PUT  token=11] counter size = 5
+[TAKE token=07 by Student-2] counter size = 4
+[TAKE token=08 by Student-2] counter size = 3
+[TAKE token=09 by Student-2] counter size = 2
+[TAKE token=10 by Student-2] counter size = 1
+[TAKE token=11 by Student-2] counter size = 0
+[PUT  token=12] counter size = 1
+[TAKE token=12 by Student-2] counter size = 0
+Observed Counter Bounds -> Min: 0 (valid >= 0), Max: 5 (valid <= 5)
+
+PS C:\Users\rr001\Downloads\CSA09-Assignment3\Q6> java AlternativesQ6
+ArrayBlockingQueue token sum: 210 (expected 210)
+tryLock Balances -> A: 850.00, B: 1150.00

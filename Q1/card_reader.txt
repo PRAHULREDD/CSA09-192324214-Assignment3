@@ -1,0 +1,3 @@
+ACC1001,Arjun Nair,25000.00
+ACC1002,Priya Menon,8500.50
+ACC1003,Karthik Raj,1200.00

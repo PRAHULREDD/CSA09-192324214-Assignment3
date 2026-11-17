@@ -1,0 +1,25 @@
+PS C:\Users\rr001\Downloads\CSA09-Assignment3\Q5> javac *.java
+PS C:\Users\rr001\Downloads\CSA09-Assignment3\Q5> java SeatBooking
+Seats sold: 10
+
+PS C:\Users\rr001\Downloads\CSA09-Assignment3\Q5> java SeatBookingExperiments
+=== Part A: Reproducing Double Booking Over 10 Unsynchronized Runs (10 Seats, 100 Threads) ===
+Run 01 -> Seats sold: 10 (Double-bookings: 0)
+Run 02 -> Seats sold: 10 (Double-bookings: 0)
+Run 03 -> Seats sold: 10 (Double-bookings: 0)
+Run 04 -> Seats sold: 10 (Double-bookings: 0)
+Run 05 -> Seats sold: 11 (Double-bookings: 1)
+Run 06 -> Seats sold: 10 (Double-bookings: 0)
+Run 07 -> Seats sold: 10 (Double-bookings: 0)
+Run 08 -> Seats sold: 10 (Double-bookings: 0)
+Run 09 -> Seats sold: 10 (Double-bookings: 0)
+Run 10 -> Seats sold: 15 (Double-bookings: 5)
+
+=== Part B: Benchmark on 10,000 Concurrent Booking Requests (1,000 Seats) ===
+Synchronized Method -> Sold: 1000 | Time: 1554 ms
+Synchronized Block  -> Sold: 1000 | Time: 1456 ms
+
+PS C:\Users\rr001\Downloads\CSA09-Assignment3\Q5> java SeatBookingAlternatives
+AtomicBoolean[] sold      : 100
+ReentrantLock sold        : 100
+ConcurrentHashMap sold    : 100

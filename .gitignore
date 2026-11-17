@@ -1,0 +1,13 @@
+# Compiled class files
+*.class
+
+# Log & temporary generated files
+*.log
+daily_summary_*.txt
+scripts_10k/
+
+# IDE files
+.idea/
+.vscode/
+*.iml
+.DS_Store

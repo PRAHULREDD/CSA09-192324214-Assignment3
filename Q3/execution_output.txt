@@ -1,0 +1,41 @@
+PS C:\Users\rr001\Downloads\CSA09-Assignment3\Q3> javac *.java
+PS C:\Users\rr001\Downloads\CSA09-Assignment3\Q3> java ManualReportGenerator
+=== Manual Version: Valid Input Run ===
+[Manual Version] Open file handles remaining after execution: 0
+Computed Grand Total: Rs. 123302.00
+
+=== Manual Version: Failing Input Run (Corrupt File) ===
+Nov 17, 2026 8:03:32 PM ManualReportGenerator generateManualReport
+SEVERE: Failure while processing store file: data/store_corrupt.txt
+java.lang.NumberFormatException: For input string: "CORRUPT_ENTRY_XYZ"
+        at java.base/jdk.internal.math.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2054)
+        at java.base/jdk.internal.math.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+        at java.base/java.lang.Double.parseDouble(Double.java:792)
+        at ManualReportGenerator.generateManualReport(ManualReportGenerator.java:35)
+        at ManualReportGenerator.main(ManualReportGenerator.java:75)
+
+[Manual Version] Open file handles remaining after execution: 1
+
+PS C:\Users\rr001\Downloads\CSA09-Assignment3\Q3> java TryWithResourcesReportGenerator
+=== Try-With-Resources: Valid Input Run ===
+[Try-With-Resources] Open file handles remaining after execution: 0
+Computed Grand Total: Rs. 123302.00
+
+=== Try-With-Resources: Failing Input Run (Corrupt File) ===
+Nov 17, 2026 8:03:32 PM TryWithResourcesReportGenerator generateSafeReport
+SEVERE: Safe abort while processing store file: data/store_corrupt.txt
+java.lang.NumberFormatException: For input string: "CORRUPT_ENTRY_XYZ"
+        at java.base/jdk.internal.math.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2054)
+        at java.base/jdk.internal.math.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+        at java.base/java.lang.Double.parseDouble(Double.java:792)
+        at TryWithResourcesReportGenerator.generateSafeReport(TryWithResourcesReportGenerator.java:29)
+        at TryWithResourcesReportGenerator.main(TryWithResourcesReportGenerator.java:87)
+
+[Try-With-Resources] Open file handles remaining after execution: 0
+
+=== Suppressed Exception & Reverse Close Order Demo ===
+Closing resource in reverse order: SecondOpened_R2
+Closing resource in reverse order: FirstOpened_R1
+Primary Exception  : java.lang.RuntimeException: Primary processing exception inside try block
+Suppressed Exception: java.io.IOException: Close failure on SecondOpened_R2
+Suppressed Exception: java.io.IOException: Close failure on FirstOpened_R1

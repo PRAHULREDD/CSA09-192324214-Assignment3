@@ -1,0 +1,39 @@
+PS C:\Users\rr001\Downloads\CSA09-Assignment3\Q1> javac *.java
+PS C:\Users\rr001\Downloads\CSA09-Assignment3\Q1> java ATMSimulation
+=== ATM Simulation: Automated Test Paths ===
+[Session] File=card_reader.txt | Account=ACC1001 | Input='5000'
+  -> [SUCCESS] Dispensed Rs. 5000.00 | Remaining Balance: Rs. 20000.00
+  -> [FINALLY] Card ejected, keypad locked, session buffer cleared.
+[Session] File=card_reader.txt | Account=ACC1001 | Input='five00'
+  -> [CAUGHT: Multi-Catch InputMismatch/NumberFormat] Invalid numeric entry: For input string: "five00"
+  -> [FINALLY] Card ejected, keypad locked, session buffer cleared.
+[Session] File=card_reader.txt | Account=ACC1001 | Input='-1500'
+  -> [CAUGHT: Multi-Catch InvalidAmount/IllegalArgument] Withdrawal amount must be positive. Entered: -1500.0
+  -> [FINALLY] Card ejected, keypad locked, session buffer cleared.
+[Session] File=card_reader.txt | Account=ACC1003 | Input='5000'
+  -> [CAUGHT: InsufficientBalanceException] Insufficient funds (Available: Rs. 1200.00, Requested: Rs. 5000.00) (Shortfall: Rs. 3800.00)
+  -> [FINALLY] Card ejected, keypad locked, session buffer cleared.
+[Session] File=missing_card.txt | Account=ACC1001 | Input='1000'
+  -> [CAUGHT: FileNotFoundException] Card-reader file missing: missing_card.txt (The system cannot find the file specified)
+  -> [FINALLY] Card ejected, keypad locked, session buffer cleared.
+[Session] File=card_reader.txt | Account=ACC9999 | Input='1000'
+  -> [CAUGHT: Multi-Catch InvalidAmount/IllegalArgument] Unknown account number: ACC9999
+  -> [FINALLY] Card ejected, keypad locked, session buffer cleared.
+
+PS C:\Users\rr001\Downloads\CSA09-Assignment3\Q1> java ATMSimulation --interactive
+Enter Account Number (e.g., ACC1001): ACC1001
+Enter Withdrawal Amount: 144
+[Session] File=card_reader.txt | Account=ACC1001 | Input='144'
+  -> [SUCCESS] Dispensed Rs. 144.00 | Remaining Balance: Rs. 24856.00
+  -> [FINALLY] Card ejected, keypad locked, session buffer cleared.
+
+PS C:\Users\rr001\Downloads\CSA09-Assignment3\Q1> java CatchOrderDemo
+Correct order caught specific FileNotFoundException: non_existent_card.txt (The system cannot find the file specified)
+
+PS C:\Users\rr001\Downloads\CSA09-Assignment3\Q1> java ATMAlternativeErrorCode
+=== ATM Alternative (Error Codes without Exception Control Flow) ===
+Valid withdrawal code      : 0
+Invalid letters code       : -2
+Negative amount code       : -3
+Insufficient balance code  : -4
+Missing card file code     : -1

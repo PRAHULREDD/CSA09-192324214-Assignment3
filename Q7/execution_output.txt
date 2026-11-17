@@ -1,0 +1,14 @@
+PS C:\Users\rr001\Downloads\CSA09-Assignment3\Q7> javac *.java
+PS C:\Users\rr001\Downloads\CSA09-Assignment3\Q7> java ResultProcessor
+=== Stage 1: Hand-Checked 10-File Verification Set ===
+Sample Set (Expected: 8 Success, 1 Missing, 1 Corrupt) -> Actual: 8 Success, 1 Missing, 1 Corrupt
+
+=== Stage 2: 10,000 Answer-Script Benchmark (Pool Sizes: 1, 2, 4, 8) ===
+Pool Size = 1 | Time = 65138 ms | Throughput =    153.5 files/sec | Success=9795, Missing=104, Corrupt=101
+Pool Size = 2 | Time =   859 ms | Throughput =  11641.4 files/sec | Success=9795, Missing=104, Corrupt=101
+Pool Size = 4 | Time =   444 ms | Throughput =  22522.5 files/sec | Success=9795, Missing=104, Corrupt=101
+Pool Size = 8 | Time =   338 ms | Throughput =  29585.8 files/sec | Success=9795, Missing=104, Corrupt=101
+
+PS C:\Users\rr001\Downloads\CSA09-Assignment3\Q7> java ResultProcessorAlternatives
+[ParallelStream] Valid: 8 | Failed: 2 | Time: 21 ms
+[Thread-Per-File (10 threads)] Valid: 8 | Failed: 2 | Time: 3 ms
